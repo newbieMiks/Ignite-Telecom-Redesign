@@ -1,0 +1,4746 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    padding: 0;
+    margin: 0;
+
+    background: #111111;
+
+    color: #ffffff;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+
+    --orange: #ed4036;
+
+    --orange-light: #f6921e;
+
+    --white: #ffffff;
+
+    --black: #111111;
+
+    --gray: #a5a5a5;
+
+    --dark-gray: #1b1b1b;
+
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+nav {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 80px;
+
+    padding: 0 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 1000;
+
+    background: white;
+
+    border-top: var(--orange) solid 10px;
+
+    transition:
+        transform 0.5s ease,
+        opacity 0.5s ease;
+
+}
+
+
+nav.nav-hidden {
+
+    transform: translateY(-100%);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+}
+
+
+.logo {
+
+    width: 110px;
+
+    object-fit: contain;
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 35px;
+
+    list-style: none;
+
+}
+
+
+.nav-links a {
+
+    position: relative;
+
+    color: rgb(7, 7, 7);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.65;
+
+    transition: 0.3s;
+
+}
+
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--orange);
+
+    transition: 0.3s;
+
+}
+
+
+.nav-links a:hover {
+
+    opacity: 1;
+
+}
+
+
+.nav-links a:hover::after {
+
+    width: 100%;
+
+}
+
+
+/* =========================================
+   SLIDE
+========================================= */
+
+.slide {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100svh;
+
+    padding: 8%;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    scroll-snap-align: start;
+
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -3;
+
+    transition:
+        transform 1.5s ease;
+
+}
+
+
+.overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -2;
+
+    background: white;
+
+}
+
+
+/* =========================================
+   ORANGE GLOW
+========================================= */
+
+.glow {
+
+    position: absolute;
+
+    width: 600px;
+
+    height: 600px;
+
+    right: -100px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,90,31,0.25),
+            rgba(255,90,31,0.08) 35%,
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    z-index: -1;
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    background-image: url(assets/images/hero2.png);
+
+    background-repeat: no-repeat;
+
+    background-position:
+        center 5%;
+
+    background-size: cover;
+
+}
+
+
+.hero .background {
+
+    background: white;
+
+}
+
+
+.hero-content {
+
+    max-width: 900px;
+
+    opacity: 0;
+
+    transform: translateY(60px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+}
+
+
+.eyebrow {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+
+    color: var(--orange);
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+}
+
+
+.eyebrow::before {
+
+    content: "";
+
+    width: 35px;
+
+    height: 2px;
+
+    background: var(--orange);
+
+}
+
+
+h1 {
+
+    font-size: clamp(
+        55px,
+        10vw,
+        110px
+    );
+
+    line-height: 0.85;
+
+    margin-bottom: 20px;
+
+    color: black;
+
+}
+
+
+h1 span {
+
+    color: var(--orange);
+
+}
+
+
+.hero p {
+
+    max-width: 600px;
+
+    color: black;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+}
+
+
+.hero p span {
+
+    color: var(--orange);
+
+}
+
+
+.hero p .mbps {
+
+    font-weight: normal;
+
+    font-size: 20px;
+
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    background-color: var(--orange);
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+    padding: 16px 25px;
+
+    border: 1px solid var(--orange);
+
+    border-radius: 10px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    transition: 0.35s;
+
+}
+
+
+.button span {
+
+    color: white;
+
+    transition: 0.35s;
+
+}
+
+
+.button:hover {
+
+    background: var(--orange);
+
+    color: white;
+
+    transform: translateY(-3px);
+
+}
+
+
+.button:hover span {
+
+    color: white;
+
+    transform: translateX(5px);
+
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.content {
+
+    max-width: 700px;
+
+    opacity: 0;
+
+    transform: translateY(60px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+
+}
+
+
+.number {
+
+    margin-bottom: 25px;
+
+    color: var(--orange);
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+}
+
+
+h2 {
+
+    font-size: clamp(
+        55px,
+        8vw,
+        110px
+    );
+
+    line-height: 0.9;
+
+    letter-spacing: -6px;
+
+    margin-bottom: 35px;
+
+}
+
+
+.content p {
+
+    max-width: 570px;
+
+    color: var(--black);
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================
+   WHY IGNITE / SLIDE 02
+========================================= */
+
+.white-slide {
+
+    position: relative;
+
+    background-image:
+        url("assets/images/herowhy5.jpg");
+
+    background-repeat: no-repeat;
+
+    background-position:
+        center 90%;
+
+    background-size: cover;
+
+    color: white;
+
+    overflow: hidden;
+
+}
+
+
+.white-slide .content {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: min(
+        620px,
+        48%
+    );
+
+    padding-top: 12vh;
+
+}
+
+
+.white-slide .number {
+
+    margin-bottom: 18px;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+}
+
+
+.white-slide h2 {
+
+    margin: 0;
+
+    max-width: 650px;
+
+    color: white;
+
+    font-size: clamp(
+        52px,
+        5.5vw,
+        60px
+    );
+
+    line-height: 0.92;
+
+    letter-spacing: -4px;
+
+    font-weight: 800;
+
+}
+
+
+.white-slide h2 span {
+
+    color: #ff4538;
+
+}
+
+
+.white-slide .heading-line {
+
+    width: 65px;
+
+    height: 3px;
+
+    margin-top: 25px;
+
+    margin-bottom: 35px;
+
+    background: var(--orange-light);
+
+}
+
+
+.white-slide .benefits {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+    max-width: 570px;
+
+}
+
+
+.white-slide .benefit {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+}
+
+
+.white-slide .benefit-icon {
+
+    flex: 0 0 48px;
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #ff4538;
+
+    font-size: 22px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(0, 0, 0, 0.10);
+
+}
+
+
+.white-slide .benefit-text h3 {
+
+    margin: 0 0 5px;
+
+    color: white;
+
+    font-size: 18px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+}
+
+
+.white-slide .benefit-text p {
+
+    margin: 0;
+
+    max-width: 450px;
+
+    color: white;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+}
+
+
+.white-slide .connection-message {
+
+    margin-top: 20px;
+
+    padding-top: 10px;
+
+    border-top:
+        1px solid
+        rgba(0, 0, 0, 0.15);
+
+    max-width: 520px;
+
+}
+
+
+.white-slide .connection-message span {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+.white-slide .connection-message p {
+
+    margin: 0;
+
+    color: white;
+
+    font-size: 16px;
+
+    line-height: 1.5;
+
+}
+
+/* =========================================================
+   SLIDE 03
+   IGNITE PLANS / INTERACTIVE PLAN GALLERY
+========================================================= */
+
+.work-slide {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(480px, 1.02fr) minmax(500px, 0.98fr);
+    gap: 5.5%;
+    padding: 92px 7% 55px 8%;
+    color: var(--black);
+    background-image: url(assets/images/lightning-1.png);
+    background-repeat: no-repeat;
+
+    background-position:
+        center 90%;
+
+    background-size: cover;
+    background-color: white;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Keep the broadband lines, but make them feel light and premium on white. */
+.work-slide::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("assets/images/lightning-1.png") no-repeat center center / cover;
+    opacity: 0.18;
+    z-index: -3;
+    pointer-events: none;
+}
+
+/* Soft white veil prevents the decorative lines from competing with the content. */
+.work-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.98) 0%,
+        rgba(255,255,255,0.90) 45%,
+        rgba(255,255,255,0.72) 100%
+    );
+    z-index: -2;
+    pointer-events: none;
+}
+
+.work-intro {
+    width: 100%;
+    height: 100%;
+    padding-top: 1vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+}
+
+.work-intro .number {
+    margin-bottom: 18px;
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.work-image {
+    position: relative;
+    width: 100%;
+    height: min(53vh, 430px);
+    min-height: 350px;
+    overflow: hidden;
+    background: #f5f5f5;
+    border: 1px solid rgba(17,17,17,0.08);
+    border-radius: 2px;
+    box-shadow: 0 25px 60px rgba(17,17,17,0.14);
+}
+
+.work-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.015);
+    transition: opacity 0.4s ease, transform 0.8s ease, filter 0.5s ease;
+}
+
+.work-image:hover img {
+    transform: scale(1.045);
+}
+
+/* Clean bottom fade keeps the text readable without making the whole image dark. */
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.78) 0%,
+        rgba(0,0,0,0.35) 32%,
+        rgba(0,0,0,0.04) 65%,
+        rgba(0,0,0,0) 100%
+    );
+}
+
+.work-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        135deg,
+        rgba(237,64,54,0.16),
+        transparent 45%,
+        rgba(246,146,30,0.10)
+    );
+}
+
+.image-accent {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 58px;
+    height: 3px;
+    background: var(--orange);
+    z-index: 5;
+}
+
+.image-caption {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 28px;
+    z-index: 5;
+    color: white;
+}
+
+.image-caption span {
+    display: block;
+    margin-bottom: 8px;
+    color: #ff695f;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.image-caption h3 {
+    margin: 0;
+    max-width: 610px;
+    font-size: clamp(27px, 2.3vw, 38px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -1.2px;
+}
+
+.image-caption p {
+    margin-top: 9px;
+    max-width: 560px;
+    color: rgba(255,255,255,0.82);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.image-transition {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    background: linear-gradient(90deg, var(--orange), var(--orange-light));
+    transform: scaleX(0);
+    transform-origin: left;
+    pointer-events: none;
+}
+
+.work-description {
+    max-width: 610px;
+    margin-top: 18px;
+}
+
+.work-description p {
+    margin: 0;
+    color: #4f4f4f;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* RIGHT SIDE */
+.ignite-projects {
+    width: 100%;
+    align-self: center;
+    position: relative;
+    z-index: 5;
+    padding-top: 10px;
+}
+
+.plans-heading {
+    margin-bottom: 22px;
+    padding-left: 2px;
+}
+
+.plans-heading span {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--orange);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.plans-heading h2 {
+    margin: 0;
+    color: #171717;
+    font-size: clamp(42px, 4.4vw, 62px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    font-weight: 800;
+}
+
+.plans-heading p {
+    margin-top: 10px;
+    color: #6c6c6c;
+    font-size: 15px;
+}
+
+.ignite-card {
+    position: relative;
+    width: 100%;
+    min-height: 122px;
+    margin-bottom: 13px;
+    padding: 23px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    font: inherit;
+    color: var(--black);
+    background: rgba(255,255,255,0.94);
+    border: 1px solid rgba(17,17,17,0.12);
+    border-left: 4px solid rgba(237,64,54,0.45);
+    border-radius: 0;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 8px 22px rgba(17,17,17,0.06);
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1),
+                background 0.35s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+.ignite-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 0;
+    background: linear-gradient(90deg, rgba(237,64,54,0.10), rgba(246,146,30,0.035), transparent);
+    transition: width 0.45s ease;
+    pointer-events: none;
+}
+
+.ignite-card:hover,
+.ignite-card.active {
+    transform: translateX(-10px);
+    background: #fff8f6;
+    border-color: rgba(237,64,54,0.28);
+    border-left-color: var(--orange);
+    box-shadow: 0 15px 32px rgba(17,17,17,0.10);
+}
+
+.ignite-card:hover::before,
+.ignite-card.active::before {
+    width: 100%;
+}
+
+.ignite-card-content {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 110px minmax(130px, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 22px;
+    align-items: center;
+    width: calc(100% - 35px);
+}
+
+.ignite-card-label {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.3;
+}
+
+.plan-speed {
+    grid-column: 2;
+    grid-row: 1;
+    color: #171717;
+    font-size: 29px;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.plan-speed small {
+    color: var(--orange);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.plan-brief {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 6px;
+    max-width: 390px;
+    color: #686868;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.ignite-card-number {
+    position: relative;
+    z-index: 3;
+    align-self: flex-start;
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.card-arrow {
+    position: absolute;
+    right: 28px;
+    bottom: 17px;
+    color: var(--orange);
+    font-size: 16px;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.ignite-card:hover .card-arrow,
+.ignite-card.active .card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.cards-hint {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 17px;
+    color: #8a8a8a;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.cards-hint span {
+    width: 28px;
+    height: 2px;
+    background: var(--orange);
+}
+
+@media (max-width: 1100px) and (min-width: 901px) {
+    .work-slide {
+        grid-template-columns: minmax(400px, 1fr) minmax(390px, 0.9fr);
+        gap: 4%;
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .work-image {
+        height: 390px;
+    }
+
+    .ignite-card-content {
+        grid-template-columns: 90px minmax(120px, 1fr);
+        column-gap: 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    .work-slide {
+        height: auto;
+        min-height: 100svh;
+        padding: 105px 25px 60px;
+        display: block;
+    }
+
+    .work-intro {
+        padding-top: 0;
+    }
+
+    .work-image {
+        height: 330px;
+        min-height: 0;
+    }
+
+    .ignite-projects {
+        margin-top: 35px;
+        padding-top: 0;
+    }
+
+    .plans-heading h2 {
+        font-size: 48px;
+    }
+
+    .ignite-card {
+        min-height: 112px;
+        padding: 20px;
+    }
+
+    .ignite-card:hover,
+    .ignite-card.active {
+        transform: translateX(-5px);
+    }
+
+    .ignite-card-content {
+        grid-template-columns: 82px minmax(120px, 1fr);
+        column-gap: 14px;
+    }
+
+    .plan-speed {
+        font-size: 25px;
+    }
+
+    .work-description {
+        margin-bottom: 25px;
+    }
+}
+
+/* =========================================
+   ORANGE SLIDE
+========================================= */
+
+.orange-slide {
+
+    background: var(--orange);
+
+}
+
+
+.orange-slide .number {
+
+    color: white;
+
+}
+
+
+.orange-slide .content p {
+
+    color:
+        rgba(255,255,255,0.8);
+
+}
+
+
+.orange-slide .button {
+
+    border-color: white;
+
+}
+
+
+.orange-slide .button span {
+
+    color: white;
+
+}
+
+
+.orange-slide .button:hover {
+
+    background: white;
+
+    color: var(--orange);
+
+}
+
+
+/* =========================================
+   SIDE DOTS
+========================================= */
+
+.dots {
+
+    position: fixed;
+
+    right: 35px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    z-index: 1000;
+
+}
+
+
+.dot {
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,0.25);
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.dot.active {
+
+    background: var(--orange);
+
+    transform: scale(1.8);
+
+}
+
+
+/* =========================================
+   SCROLL INDICATOR
+========================================= */
+
+.scroll {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 8%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    color: #888;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+}
+
+
+.scroll-line {
+
+    width: 55px;
+
+    height: 2px;
+
+    background: var(--orange);
+
+}
+
+
+/* =========================================
+   ACTIVE ANIMATION
+========================================= */
+
+.slide.active .content,
+.slide.active .hero-content {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.slide.active .background {
+
+    transform: scale(1.05);
+
+}
+
+
+/* =========================================
+   VERTICAL LINE
+========================================= */
+
+.vertical-line {
+
+    position: absolute;
+
+    left: 7%;
+
+    top: 0;
+
+    width: 1px;
+
+    height: 100%;
+
+    background:
+        rgba(0,0,0,0.08);
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+
+    nav {
+
+        padding: 0 6%;
+
+    }
+
+
+    .nav-links {
+
+        display: none;
+
+    }
+
+
+    .slide {
+
+        padding: 25px;
+
+        min-height: 100svh;
+
+        height: auto;
+
+    }
+
+
+    h1 {
+
+        font-size: 65px;
+
+        letter-spacing: -5px;
+
+    }
+
+
+    h2 {
+
+        font-size: 58px;
+
+        letter-spacing: -4px;
+
+    }
+
+
+    /* =====================================
+       SLIDE 03 MOBILE
+    ===================================== */
+
+    .work-slide {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 30px;
+
+        padding-top: 90px;
+
+        padding-bottom: 60px;
+
+        overflow-y: auto;
+
+    }
+
+
+    .work-intro {
+
+        height: auto;
+
+        padding-top: 0;
+
+        display: block;
+
+    }
+
+
+    .work-image {
+
+        height: 300px;
+
+    }
+
+
+    .work-description {
+
+        margin-top: 20px;
+
+    }
+
+
+    .ignite-projects {
+
+        width: 100%;
+
+    }
+
+
+    .ignite-card {
+
+        height: 95px;
+
+        padding:
+            18px 20px;
+
+    }
+
+
+    .ignite-card:hover {
+
+        transform: none;
+
+    }
+
+
+    .ignite-card.active {
+
+        transform: none;
+
+    }
+
+
+    .ignite-card h3 {
+
+        font-size: 17px;
+
+    }
+
+
+    .ignite-card p {
+
+        font-size: 9px;
+
+    }
+
+
+    .image-caption h3 {
+
+        font-size: 24px;
+
+    }
+
+
+    .dots {
+
+        right: 15px;
+
+    }
+
+
+    .scroll {
+
+        left: 25px;
+
+    }
+
+}
+
+/* =========================================
+   STATIC NAVIGATION
+========================================= */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition: none !important;
+}
+
+nav.nav-hidden {
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+.nav-links a.active-nav {
+    color: var(--orange);
+    opacity: 1;
+    font-weight: 700;
+}
+
+.nav-links a.active-nav::after { width: 100%; }
+
+/* =========================================
+   SLIDE 04 / ABOUT US
+   ========================================= */
+.about-slide {
+    position: relative;
+    min-height: 100svh;
+    height: 100svh;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 48% 52%;
+    align-items: stretch;
+    overflow: hidden;
+    background: #fff;
+    color: #fff;
+    isolation: isolate;
+}
+
+.about-background {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background: url("assets/images/aboutus-img.jpg") center center / cover no-repeat;
+}
+
+.about-slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(237,64,54,0.03), rgba(255,255,255,0.02) 48%, rgba(255,255,255,0.10));
+}
+
+.about-content {
+    position: relative;
+    z-index: 5;
+    width: min(600px, 82%);
+    margin-left: 8%;
+    padding-top: 110px;
+    padding-bottom: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-content .number {
+    margin: 0 0 14px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.about-content h2 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(42px, 4vw, 58px);
+    line-height: .95;
+    letter-spacing: -2.5px;
+    font-weight: 800;
+}
+
+.about-line {
+    width: 92px;
+    height: 4px;
+    margin: 11px 0 25px;
+    background: var(--orange);
+}
+
+.about-copy { max-width: 520px; }
+
+.about-copy p {
+    margin: 0 0 15px;
+    color: rgba(255,255,255,.96);
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.about-logo-title {
+    margin: 3px 0 10px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.about-button {
+    align-self: flex-start;
+    margin-top: 4px;
+    padding: 13px 20px;
+    border-radius: 5px;
+    background: #fff;
+    border-color: #fff;
+    color: var(--orange);
+    font-size: 13px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.10);
+}
+
+.about-button span { color: var(--orange); }
+
+.about-button:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.about-button:hover span { color: #fff; }
+
+.about-logo-panel {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 7% 45px 4%;
+}
+
+.about-logo-card {
+    width: min(610px, 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-logo-card img {
+    display: block;
+    width: min(430px, 72%);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 18px rgba(0,0,0,.04));
+}
+
+.about-decorative-label {
+    position: absolute;
+    right: 5.5%;
+    bottom: 28px;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(237,64,54,.70);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.about-decorative-label span {
+    width: 36px;
+    height: 2px;
+    background: var(--orange);
+}
+
+.slide { scroll-margin-top: 80px; }
+
+@media (max-width: 900px) {
+    .about-slide {
+        height: auto;
+        min-height: 100svh;
+        grid-template-columns: 1fr;
+        padding: 100px 25px 55px;
+    }
+    .about-background { background-position: center center; }
+    .about-content { width: 100%; margin-left: 0; padding: 0; justify-content: flex-start; }
+    .about-content h2 { font-size: 48px; }
+    .about-copy p { font-size: 14px; }
+    .about-logo-panel { padding: 25px 0 35px; }
+    .about-logo-card img { width: min(330px, 80%); }
+    .about-decorative-label { display: none; }
+}
+
+
+/* =========================================
+   SLIDE 05 / FAQS
+   Editorial Ignite FAQ layout
+========================================= */
+.faq-slide {
+    position: relative;
+    min-height: 100svh;
+    height: 100svh;
+    padding: 0 7%;
+    background: #ffffff;
+    color: var(--black);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.faq-slide::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    right: -210px;
+    top: -180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(237,64,54,.10), rgba(237,64,54,0) 70%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+.faq-slide::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 2px;
+    right: -30px;
+    bottom: 105px;
+    background: linear-gradient(90deg, transparent, rgba(237,64,54,.35));
+    transform: rotate(-8deg);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.faq-vertical-line {
+    position: absolute;
+    left: 7%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: rgba(17,17,17,.07);
+}
+
+.faq-layout {
+    position: relative;
+    z-index: 2;
+    width: min(1220px, 100%);
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 110px;
+    padding-bottom: 50px;
+    display: grid;
+    grid-template-columns: minmax(320px, .78fr) minmax(500px, 1.22fr);
+    gap: clamp(55px, 8vw, 120px);
+    align-items: center;
+}
+
+.faq-intro {
+    align-self: center;
+    max-width: 470px;
+}
+
+.faq-intro .number {
+    margin: 0 0 18px;
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.faq-intro h2 {
+    margin: 0;
+    color: var(--black);
+    font-size: clamp(50px, 5.4vw, 78px);
+    line-height: .88;
+    letter-spacing: -5px;
+    font-weight: 800;
+}
+
+.faq-intro h2 span {
+    color: var(--orange);
+}
+
+.faq-heading-line {
+    width: 82px;
+    height: 3px;
+    margin: 25px 0 25px;
+    background: var(--orange);
+}
+
+.faq-intro > p {
+    max-width: 430px;
+    margin: 0;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.faq-help {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(17,17,17,.10);
+}
+
+.faq-help > span {
+    display: block;
+    margin-bottom: 11px;
+    color: #999;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.faq-button {
+    margin-top: 0;
+    padding: 13px 19px;
+    border-radius: 5px;
+}
+
+.faq-list {
+    width: 100%;
+    max-height: calc(100svh - 145px);
+    overflow-y: auto;
+    padding-right: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(237,64,54,.45) transparent;
+}
+
+.faq-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.faq-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.faq-list::-webkit-scrollbar-thumb {
+    background: rgba(237,64,54,.45);
+    border-radius: 10px;
+}
+
+.faq-item {
+    position: relative;
+    margin-bottom: 13px;
+    border: 1px solid #e7e7e7;
+    border-left: 3px solid #dedede;
+    background: #fff;
+    transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+}
+
+.faq-item:hover {
+    transform: translateX(-4px);
+    border-left-color: rgba(237,64,54,.65);
+    box-shadow: 0 10px 28px rgba(0,0,0,.07);
+}
+
+.faq-item.active {
+    border-color: rgba(237,64,54,.20);
+    border-left-color: var(--orange);
+    background: #fffaf8;
+    box-shadow: 0 12px 30px rgba(0,0,0,.07);
+}
+
+.faq-question {
+    width: 100%;
+    min-height: 82px;
+    padding: 18px 22px;
+    border: 0;
+    background: transparent;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.faq-question-main {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 0;
+    font-size: 17px;
+    line-height: 1.35;
+    font-weight: 700;
+}
+
+.faq-index {
+    flex: 0 0 auto;
+    color: var(--orange);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.faq-arrow {
+    flex: 0 0 auto;
+    color: var(--orange);
+    font-size: 25px;
+    transition: transform .35s ease;
+}
+
+.faq-item.active .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .35s ease;
+}
+
+.faq-answer p {
+    min-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0 22px 0 62px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.65;
+    transition: padding .35s ease;
+}
+
+.faq-item.active .faq-answer {
+    grid-template-rows: 1fr;
+}
+
+.faq-item.active .faq-answer p {
+    padding-bottom: 23px;
+}
+
+.faq-answer a {
+    color: var(--orange);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.faq-answer a:hover {
+    text-decoration: underline;
+}
+
+.faq-footer-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    color: #999;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.faq-footer-label span {
+    width: 28px;
+    height: 2px;
+    background: var(--orange);
+}
+
+@media (max-width: 1000px) {
+    .faq-layout {
+        grid-template-columns: minmax(270px, .7fr) minmax(430px, 1.3fr);
+        gap: 45px;
+    }
+
+    .faq-intro h2 {
+        font-size: 52px;
+    }
+}
+
+@media (max-width: 900px) {
+    .faq-slide {
+        height: auto;
+        min-height: 100svh;
+        padding: 100px 25px 55px;
+        overflow: visible;
+    }
+
+    .faq-vertical-line {
+        left: 25px;
+    }
+
+    .faq-layout {
+        height: auto;
+        padding: 0;
+        display: block;
+    }
+
+    .faq-intro {
+        max-width: 100%;
+        margin-bottom: 38px;
+        padding-left: 18px;
+    }
+
+    .faq-intro h2 {
+        font-size: 50px;
+        letter-spacing: -3px;
+    }
+
+    .faq-list {
+        max-height: none;
+        overflow: visible;
+        padding-left: 18px;
+    }
+
+    .faq-question {
+        min-height: 75px;
+        padding: 16px;
+    }
+
+    .faq-question-main {
+        gap: 13px;
+        font-size: 15px;
+    }
+
+    .faq-answer p {
+        padding-left: 45px;
+        padding-right: 16px;
+        font-size: 13px;
+    }
+
+    .faq-item.active .faq-answer p {
+        padding-bottom: 18px;
+    }
+}
+
+
+/* =========================================
+   SCROLL / VIEWPORT STABILITY FIX
+   Keeps each desktop slide exactly one
+   viewport tall so content does not shift
+   or create an extra scroll area.
+========================================= */
+
+html {
+    width: 100%;
+    min-height: 100%;
+    scroll-padding-top: 0;
+    overflow-x: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.slide {
+    flex: 0 0 100svh;
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
+    overflow: hidden;
+    scroll-margin-top: 0;
+    scroll-snap-stop: always;
+    contain: layout paint;
+}
+
+/* Fixed navbar overlays the slides instead of adding page height. */
+nav {
+    position: fixed !important;
+    height: 80px;
+    top: 0;
+    z-index: 1000;
+}
+
+/* =========================================
+   SLIDE 06 / CONTACT US
+   Matches the supplied Ignite contact
+   screenshot: red/orange data-road background,
+   centered form, contact details and footer.
+========================================= */
+
+.contact-slide {
+    position: relative;
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
+    padding: 80px 7% 0;
+    display: block;
+    color: #fff;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--orange);
+}
+
+.contact-background {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background: url("assets/images/Background-1.png") center center / cover no-repeat;
+    transform: scale(1.01);
+}
+
+.contact-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(237,64,54,.12) 0%,
+            rgba(237,64,54,.04) 45%,
+            rgba(237,64,54,.14) 100%
+        );
+}
+
+.contact-inner {
+    position: relative;
+    width: min(960px, 100%);
+    height: calc(100svh - 80px);
+    margin: 0 auto;
+    padding: 10px 0 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-heading {
+    flex: 0 0 auto;
+}
+
+.contact-heading .number {
+    margin: 0 0 4px;
+    color: rgba(255,255,255,.82);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.contact-heading h2 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(35px, 4.1vw, 58px);
+    line-height: .95;
+    letter-spacing: -2.5px;
+    font-weight: 800;
+}
+
+.contact-heading h2 span {
+    color: #fff;
+}
+
+.contact-heading > p {
+    margin: 3px 0 8px;
+    color: rgba(255,255,255,.95);
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.contact-heading-line {
+    width: 72px;
+    height: 3px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+/* Form */
+.contact-form {
+    width: min(560px, 100%);
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form textarea,
+.contact-form input {
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: rgba(255,255,255,.98);
+    color: #222;
+    font: inherit;
+    box-shadow: 0 8px 25px rgba(120,20,15,.12);
+    transition: box-shadow .25s ease, transform .25s ease;
+}
+
+.contact-form textarea::placeholder,
+.contact-form input::placeholder {
+    color: #aaa;
+}
+
+.contact-form textarea:focus,
+.contact-form input:focus {
+    box-shadow:
+        0 0 0 2px rgba(255,255,255,.55),
+        0 10px 30px rgba(120,20,15,.18);
+    transform: translateY(-1px);
+}
+
+.contact-form textarea {
+    height: 148px;
+    min-height: 148px;
+    resize: none;
+    padding: 12px 14px;
+    border-radius: 10px;
+}
+
+.contact-fields {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-top: 12px;
+}
+
+.contact-fields input {
+    height: 34px;
+    padding: 0 14px;
+    border-radius: 9px;
+    font-size: 12px;
+}
+
+.contact-submit {
+    margin-top: 12px;
+    min-width: 138px;
+    height: 40px;
+    padding: 0 22px;
+    border: 0;
+    border-radius: 8px;
+    background: #fff;
+    color: #111;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(120,20,15,.16);
+    transition: transform .25s ease, background .25s ease, color .25s ease;
+}
+
+.contact-submit:hover {
+    transform: translateY(-3px);
+    background: #111;
+    color: #fff;
+}
+
+/* Contact information */
+.contact-details {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+.contact-details p {
+    margin: 0;
+    font-weight: 500;
+}
+
+.contact-details a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: opacity .2s ease, transform .2s ease;
+}
+
+.contact-details a:hover {
+    opacity: .8;
+    transform: translateY(-1px);
+}
+
+.contact-details i {
+    margin-right: 6px;
+}
+
+/* Footer */
+.contact-footer {
+    width: 100%;
+    margin-top: auto;
+    padding-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255,255,255,.96);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* =========================================
+   RESPONSIVE SCROLL FIX
+========================================= */
+
+@media (max-width: 900px) {
+    .slide {
+        flex: 0 0 auto;
+        height: auto;
+        min-height: 100svh;
+        max-height: none;
+        contain: none;
+        overflow: visible;
+    }
+
+    .contact-slide {
+        height: auto;
+        min-height: 100svh;
+        max-height: none;
+        padding: 95px 25px 35px;
+        overflow: hidden;
+    }
+
+    .contact-inner {
+        height: calc(100svh - 130px);
+        min-height: 560px;
+        padding: 0;
+    }
+
+    .contact-heading h2 {
+        font-size: 43px;
+        letter-spacing: -2px;
+    }
+
+    .contact-heading > p {
+        font-size: 15px;
+    }
+
+    .contact-form {
+        margin-top: 16px;
+    }
+
+    .contact-form textarea {
+        height: 125px;
+        min-height: 125px;
+    }
+
+    .contact-fields {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+
+    .contact-footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+
+/* =========================================================
+   FINAL OVERRIDES
+   Full-page scrolling + redesigned final CTA
+========================================================= */
+
+/* Make the document itself the snap-scrolling surface.
+   The previous body overflow rule could create an additional
+   scroll container and make slides appear to move downward. */
+html {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+    background: #fff;
+}
+
+/* Every desktop section is exactly one viewport.
+   The fixed navbar sits on top instead of consuming another 80px. */
+.slide {
+    width: 100%;
+    height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scroll-margin-top: 0;
+    overflow: hidden;
+}
+
+nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 80px;
+    z-index: 1000;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition: none !important;
+}
+
+/* =========================================================
+   FINAL CONTACT SLIDE
+========================================================= */
+.contact-slide {
+    position: relative;
+    display: block;
+    height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    padding: 80px 7% 0;
+    color: #fff;
+    background: #ed4036;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.contact-background {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background: url("assets/images/Background-1.png") center center / cover no-repeat;
+    transform: scale(1.015);
+}
+
+.contact-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(22, 22, 22, .78) 0%,
+            rgba(22, 22, 22, .54) 40%,
+            rgba(237, 64, 54, .48) 72%,
+            rgba(246, 146, 30, .58) 100%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(237, 64, 54, .08),
+            rgba(237, 64, 54, .20)
+        );
+}
+
+/* Subtle brand glow */
+.contact-slide::before {
+    content: "";
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    right: -230px;
+    top: 40px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,.17),
+        rgba(255,255,255,0) 70%
+    );
+    z-index: -1;
+    pointer-events: none;
+}
+
+.contact-inner {
+    position: relative;
+    width: min(1240px, 100%);
+    height: calc(100dvh - 80px);
+    margin: 0 auto;
+    padding: 58px 0 22px;
+    display: grid;
+    grid-template-columns: minmax(390px, .9fr) minmax(430px, 1.05fr);
+    grid-template-rows: 1fr auto;
+    column-gap: clamp(55px, 7vw, 110px);
+    row-gap: 18px;
+    align-items: center;
+}
+
+.contact-copy {
+    align-self: center;
+    max-width: 580px;
+}
+
+.contact-copy .number {
+    margin: 0 0 18px;
+    color: rgba(255,255,255,.78);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+.contact-copy h2 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(52px, 6vw, 86px);
+    line-height: .86;
+    letter-spacing: -5px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.contact-copy h2 span {
+    color: #ffd8ce;
+}
+
+.contact-heading-line {
+    width: 82px;
+    height: 4px;
+    margin: 26px 0 22px;
+    background: #fff;
+}
+
+.contact-lead {
+    max-width: 510px;
+    margin: 0;
+    color: rgba(255,255,255,.91);
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+.contact-plans-button {
+    margin-top: 25px;
+    padding: 14px 21px;
+    border-color: #fff;
+    border-radius: 5px;
+    background: #fff;
+    color: var(--orange);
+    box-shadow: 0 12px 28px rgba(0,0,0,.16);
+}
+
+.contact-plans-button span {
+    color: var(--orange);
+}
+
+.contact-plans-button:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: #fff;
+}
+
+.contact-plans-button:hover span {
+    color: #fff;
+}
+
+.contact-details {
+    margin-top: 31px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+    gap: 24px;
+    max-width: 700px;
+    text-align: left;
+}
+
+.contact-detail-block {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.contact-detail-label {
+    color: rgba(255,255,255,.64);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.contact-details a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1.45;
+    font-weight: 700;
+}
+
+.contact-details a:hover {
+    color: #ffe4dc;
+}
+
+.contact-details i {
+    margin-right: 5px;
+}
+
+.contact-form-panel {
+    width: 100%;
+    max-width: 570px;
+    justify-self: end;
+    padding: 34px;
+    background: rgba(255,255,255,.95);
+    border: 1px solid rgba(255,255,255,.72);
+    border-radius: 4px;
+    box-shadow: 0 24px 65px rgba(55, 15, 10, .25);
+    color: var(--black);
+}
+
+.form-panel-heading > span {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--orange);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.form-panel-heading h3 {
+    margin: 0;
+    color: #171717;
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -1.5px;
+}
+
+.form-panel-heading p {
+    margin: 9px 0 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.contact-form {
+    width: 100%;
+    margin-top: 23px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.contact-form textarea,
+.contact-form input {
+    width: 100%;
+    border: 1px solid #e3e3e3;
+    outline: none;
+    background: #fff;
+    color: #222;
+    font: inherit;
+    box-shadow: none;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.contact-form textarea::placeholder,
+.contact-form input::placeholder {
+    color: #aaa;
+}
+
+.contact-form textarea:focus,
+.contact-form input:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(237,64,54,.10);
+    transform: none;
+}
+
+.contact-fields {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 0 0 10px;
+}
+
+.contact-fields input {
+    height: 46px;
+    padding: 0 14px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.contact-form textarea {
+    height: 135px;
+    min-height: 135px;
+    resize: none;
+    padding: 14px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.contact-submit {
+    align-self: flex-start;
+    margin-top: 13px;
+    min-width: 150px;
+    height: 44px;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid var(--orange);
+    border-radius: 3px;
+    background: var(--orange);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .8px;
+    cursor: pointer;
+    box-shadow: none;
+    transition: transform .25s ease, background .25s ease, color .25s ease;
+}
+
+.contact-submit span {
+    font-size: 16px;
+}
+
+.contact-submit:hover {
+    transform: translateY(-2px);
+    background: #d9332b;
+    color: #fff;
+}
+
+.contact-footer {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 0;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255,255,255,.82);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .6px;
+}
+
+/* =========================================================
+   DESKTOP WHEEL-TO-SLIDE EXPERIENCE
+   JS handles deliberate one-slide-at-a-time mouse-wheel movement;
+   CSS snap remains the fallback for touchpads/touch scrolling.
+========================================================= */
+@media (min-width: 901px) {
+    html {
+        scroll-snap-type: y mandatory;
+    }
+
+    .slide {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+@media (max-width: 900px) {
+    html {
+        scroll-snap-type: y proximity;
+    }
+
+    .slide {
+        height: auto;
+        min-height: 100svh;
+        max-height: none;
+        overflow: visible;
+        scroll-snap-stop: normal;
+    }
+
+    .contact-slide {
+        height: auto;
+        min-height: 100svh;
+        max-height: none;
+        padding: 95px 25px 35px;
+        overflow: hidden;
+    }
+
+    .contact-inner {
+        width: 100%;
+        height: auto;
+        min-height: calc(100svh - 130px);
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .contact-copy {
+        max-width: none;
+    }
+
+    .contact-copy h2 {
+        font-size: 52px;
+        letter-spacing: -3px;
+    }
+
+    .contact-lead {
+        font-size: 15px;
+    }
+
+    .contact-details {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 25px;
+    }
+
+    .contact-form-panel {
+        max-width: none;
+        margin-top: 35px;
+        padding: 25px;
+    }
+
+    .contact-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form textarea {
+        height: 120px;
+        min-height: 120px;
+    }
+
+    .contact-footer {
+        margin-top: 30px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   POLISHED VISUAL + MOBILE EXPERIENCE
+   ========================================================= */
+
+/* Brand-safe image treatment */
+.hero {
+    position: relative;
+    background: #fff;
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 78% 50%, rgba(237,64,54,.12), transparent 30%),
+        radial-gradient(circle at 90% 58%, rgba(246,146,30,.10), transparent 25%);
+    pointer-events: none;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: min(760px, 58vw);
+    height: 78%;
+    right: -4%;
+    bottom: -5%;
+    background: url("assets/images/hero2.png") right center / contain no-repeat;
+    opacity: .20;
+    filter: saturate(1.08) contrast(1.03);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+.hero .scroll {
+    z-index: 4;
+}
+
+/* Better image framing for the interactive plan gallery */
+.work-image {
+    isolation: isolate;
+    background:
+        radial-gradient(circle at 70% 30%, rgba(237,64,54,.08), transparent 35%),
+        #f7f7f7;
+}
+
+.work-image img {
+    object-fit: contain;
+    object-position: center;
+    padding: 0;
+    transform: scale(1.015);
+    filter: saturate(1.04) contrast(1.02);
+}
+
+.work-image:hover img {
+    transform: scale(1.035);
+}
+
+.work-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    border: 1px solid rgba(255,255,255,.38);
+    box-shadow: inset 0 0 70px rgba(17,17,17,.07);
+}
+
+.image-caption {
+    text-shadow: 0 2px 12px rgba(0,0,0,.28);
+}
+
+.image-caption span {
+    text-shadow: none;
+}
+
+/* Give the plan cards a stronger visual relationship with their image. */
+.ignite-card {
+    backdrop-filter: blur(7px);
+}
+
+.ignite-card.active {
+    background:
+        linear-gradient(90deg, rgba(237,64,54,.10), rgba(255,255,255,.96) 42%);
+}
+
+.cards-hint {
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+.mobile-menu-toggle,
+.mobile-nav-panel {
+    display: none;
+}
+
+@media (max-width: 900px) {
+
+    html {
+        scroll-snap-type: y proximity;
+        scroll-padding-top: 0;
+    }
+
+    body {
+        background: #fff;
+    }
+
+    nav {
+        height: 70px;
+        padding: 0 18px;
+        border-top-width: 5px;
+        box-shadow: 0 8px 25px rgba(17,17,17,.07);
+    }
+
+    nav .logo {
+        width: 104px;
+        height: auto;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        position: relative;
+        width: 44px;
+        height: 44px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        border: 0;
+        border-radius: 50%;
+        background: #fff4f1;
+        cursor: pointer;
+        z-index: 1003;
+    }
+
+    .mobile-menu-toggle span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        border-radius: 2px;
+        background: var(--orange);
+        transition: transform .25s ease, opacity .25s ease;
+    }
+
+    nav.mobile-menu-open .mobile-menu-toggle span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    nav.mobile-menu-open .mobile-menu-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    nav.mobile-menu-open .mobile-menu-toggle span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-nav-panel {
+        position: absolute;
+        top: calc(100% - 1px);
+        right: 14px;
+        width: min(270px, calc(100vw - 28px));
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        background: rgba(255,255,255,.98);
+        border: 1px solid rgba(17,17,17,.07);
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 18px 40px rgba(17,17,17,.14);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+        z-index: 1002;
+    }
+
+    nav.mobile-menu-open .mobile-nav-panel {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .mobile-nav-panel a {
+        padding: 13px 14px;
+        color: #222;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        border-radius: 7px;
+    }
+
+    .mobile-nav-panel a:hover,
+    .mobile-nav-panel a:focus {
+        color: var(--orange);
+        background: #fff3ef;
+    }
+
+    /* =========================================
+       MOBILE HERO
+    ========================================= */
+
+    .hero {
+        min-height: 100svh;
+        height: auto;
+        padding: 92px 22px 48px;
+        align-items: flex-start;
+        justify-content: center;
+        background: #fff;
+    }
+
+    .hero::after {
+        width: 112%;
+        height: 48%;
+        right: -30%;
+        bottom: -2%;
+        opacity: .34;
+        background-size: contain;
+        background-position: right bottom;
+    }
+
+    .hero::before {
+        background:
+            radial-gradient(circle at 85% 72%, rgba(237,64,54,.16), transparent 33%),
+            radial-gradient(circle at 75% 88%, rgba(246,146,30,.13), transparent 28%);
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 560px;
+        padding-top: 6vh;
+        opacity: 1;
+        transform: none;
+    }
+
+    .hero h1 {
+        max-width: 620px;
+        font-size: clamp(48px, 14vw, 72px);
+        line-height: .88;
+        letter-spacing: -4px;
+        margin-bottom: 24px;
+    }
+
+    .hero p {
+        max-width: 350px;
+        font-size: 20px;
+        line-height: 1.25;
+    }
+
+    .hero p .mbps {
+        font-size: 14px;
+    }
+
+    .hero .button {
+        margin-top: 28px;
+        min-height: 50px;
+        padding: 14px 20px;
+    }
+
+    .hero .scroll {
+        left: 22px;
+        bottom: 24px;
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .dots {
+        right: 10px;
+        gap: 12px;
+    }
+
+    .dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .dot.active {
+        transform: scale(1.7);
+    }
+
+    /* =========================================
+       MOBILE WHY IGNITE
+       Image-first composition with the same
+       red/orange editorial language.
+    ========================================= */
+
+    .white-slide {
+        min-height: 100svh;
+        height: auto;
+        padding: 0 22px 52px;
+        display: block;
+        background: linear-gradient(155deg, #ed4036 0%, #f35b32 58%, #f6921e 100%);
+        color: #fff;
+    }
+
+    .white-slide::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 330px;
+        z-index: -1;
+        background:
+            linear-gradient(to bottom, rgba(237,64,54,.05), rgba(237,64,54,.68)),
+            url("assets/images/herowhy5.jpg") center 25% / cover no-repeat;
+        clip-path: polygon(0 0, 100% 0, 100% 82%, 78% 100%, 0 91%);
+        opacity: .96;
+    }
+
+    .white-slide::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 250px;
+        height: 210px;
+        z-index: -1;
+        background: linear-gradient(to bottom, rgba(237,64,54,0), rgba(237,64,54,.88) 68%, #ed4036);
+        pointer-events: none;
+    }
+
+    .white-slide .vertical-line {
+        left: 22px;
+        background: rgba(255,255,255,.15);
+    }
+
+    .white-slide .content {
+        width: 100%;
+        max-width: 600px;
+        padding: 375px 0 0;
+        opacity: 1;
+        transform: none;
+    }
+
+    .white-slide .number {
+        margin-bottom: 12px;
+        color: rgba(255,255,255,.82);
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .white-slide h2 {
+        max-width: 500px;
+        color: #fff;
+        font-size: clamp(42px, 12vw, 60px);
+        line-height: .88;
+        letter-spacing: -3px;
+    }
+
+    .white-slide .heading-line {
+        width: 65px;
+        margin: 19px 0 25px;
+        background: #ffcf9c;
+    }
+
+    .white-slide .benefits {
+        gap: 20px;
+        max-width: 100%;
+    }
+
+    .white-slide .benefit {
+        gap: 14px;
+    }
+
+    .white-slide .benefit-icon {
+        flex-basis: 43px;
+        width: 43px;
+        height: 43px;
+        font-size: 18px;
+        box-shadow: 0 8px 22px rgba(80,15,10,.16);
+    }
+
+    .white-slide .benefit-text h3 {
+        font-size: 16px;
+    }
+
+    .white-slide .benefit-text p {
+        font-size: 13px;
+        line-height: 1.45;
+    }
+
+    .white-slide .connection-message {
+        margin-top: 22px;
+        padding-top: 14px;
+        border-top-color: rgba(255,255,255,.25);
+    }
+
+    .white-slide .connection-message span {
+        color: #fff;
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .white-slide .connection-message p {
+        color: rgba(255,255,255,.9);
+        font-size: 13px;
+    }
+
+    /* =========================================
+       MOBILE PLANS
+    ========================================= */
+
+    .work-slide {
+        min-height: auto;
+        height: auto;
+        padding: 92px 18px 58px;
+        display: block;
+        background:
+            radial-gradient(circle at 90% 12%, rgba(237,64,54,.09), transparent 25%),
+            #fff;
+    }
+
+    .work-slide::before {
+        opacity: .13;
+        background-size: auto 420px;
+        background-position: center 32%;
+    }
+
+    .work-slide::after {
+        background: linear-gradient(
+            180deg,
+            rgba(255,255,255,.98),
+            rgba(255,255,255,.92) 55%,
+            rgba(255,255,255,.98)
+        );
+    }
+
+    .work-intro {
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
+
+    .work-intro .number {
+        margin-bottom: 14px;
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .work-image {
+        width: 100%;
+        height: 290px;
+        min-height: 290px;
+        border-radius: 8px;
+        box-shadow: 0 20px 45px rgba(17,17,17,.14);
+    }
+
+    .work-image img {
+        object-fit: contain;
+        transform: scale(1.01);
+    }
+
+    .work-image:hover img {
+        transform: scale(1.02);
+    }
+
+    .image-overlay {
+        background: linear-gradient(
+            to top,
+            rgba(0,0,0,.82),
+            rgba(0,0,0,.25) 38%,
+            transparent 72%
+        );
+    }
+
+    .image-caption {
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+    }
+
+    .image-caption span {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .image-caption h3 {
+        font-size: clamp(22px, 7vw, 30px);
+        line-height: .98;
+    }
+
+    .image-caption p {
+        font-size: 11px;
+        margin-top: 7px;
+    }
+
+    .work-description {
+        margin-top: 14px;
+    }
+
+    .work-description p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .ignite-projects {
+        margin-top: 30px;
+        padding-top: 0;
+    }
+
+    .plans-heading {
+        margin-bottom: 16px;
+    }
+
+    .plans-heading span {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+    }
+
+    .plans-heading h2 {
+        font-size: 48px;
+        letter-spacing: -3px;
+    }
+
+    .plans-heading p {
+        font-size: 13px;
+    }
+
+    .ignite-card {
+        min-height: 112px;
+        margin-bottom: 10px;
+        padding: 18px 16px;
+        border-radius: 7px;
+        box-shadow: 0 8px 25px rgba(17,17,17,.07);
+    }
+
+    .ignite-card:hover,
+    .ignite-card.active {
+        transform: translateX(0);
+    }
+
+    .ignite-card-content {
+        grid-template-columns: 78px minmax(0, 1fr);
+        column-gap: 12px;
+        width: calc(100% - 25px);
+    }
+
+    .ignite-card-label {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .plan-speed {
+        font-size: 26px;
+    }
+
+    .plan-speed small {
+        font-size: 11px;
+    }
+
+    .plan-brief {
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .ignite-card-number {
+        font-size: 9px;
+    }
+
+    .card-arrow {
+        right: 15px;
+        bottom: 12px;
+        opacity: 1;
+        font-size: 14px;
+    }
+
+    .cards-hint {
+        margin-top: 14px;
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    /* =========================================
+       MOBILE ABOUT
+    ========================================= */
+
+    .about-slide {
+        min-height: auto;
+        height: auto;
+        padding: 92px 20px 45px;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        color: #fff;
+    }
+
+    .about-background {
+        inset: 0 0 auto;
+        height: 330px;
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .about-slide::after {
+        inset: 0;
+        background:
+            linear-gradient(to bottom, rgba(237,64,54,.10) 0 260px, rgba(237,64,54,.92) 390px, #ed4036 48%);
+    }
+
+    .about-content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        justify-content: flex-start;
+    }
+
+    .about-content .number {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .about-content h2 {
+        font-size: 50px;
+        letter-spacing: -3px;
+    }
+
+    .about-line {
+        width: 68px;
+        height: 3px;
+        margin: 12px 0 20px;
+    }
+
+    .about-copy {
+        max-width: 100%;
+    }
+
+    .about-copy p {
+        font-size: 13px;
+        line-height: 1.55;
+        margin-bottom: 12px;
+    }
+
+    .about-logo-title {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+    .about-button {
+        margin-top: 8px;
+        font-size: 11px;
+        padding: 12px 17px;
+    }
+
+    .about-logo-panel {
+        margin-top: 24px;
+        padding: 18px 0 5px;
+        min-height: 135px;
+    }
+
+    .about-logo-card {
+        width: 100%;
+    }
+
+    .about-logo-card img {
+        width: min(270px, 82%);
+        filter: drop-shadow(0 12px 25px rgba(0,0,0,.08));
+    }
+
+    /* =========================================
+       MOBILE FAQ
+    ========================================= */
+
+    .faq-slide {
+        min-height: auto;
+        height: auto;
+        padding: 92px 18px 52px;
+        background:
+            radial-gradient(circle at 100% 0, rgba(237,64,54,.10), transparent 28%),
+            #fff;
+    }
+
+    .faq-vertical-line {
+        left: 18px;
+    }
+
+    .faq-intro {
+        margin-bottom: 28px;
+        padding-left: 14px;
+    }
+
+    .faq-intro .number {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .faq-intro h2 {
+        font-size: clamp(44px, 12vw, 58px);
+        letter-spacing: -3px;
+    }
+
+    .faq-intro > p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .faq-help {
+        margin-top: 22px;
+        padding-top: 16px;
+    }
+
+    .faq-list {
+        padding-left: 14px;
+    }
+
+    .faq-item {
+        margin-bottom: 10px;
+        border-radius: 7px;
+        overflow: hidden;
+    }
+
+    .faq-question {
+        min-height: 68px;
+        padding: 14px;
+    }
+
+    .faq-question-main {
+        gap: 11px;
+        font-size: 14px;
+    }
+
+    .faq-index {
+        font-size: 9px;
+    }
+
+    .faq-arrow {
+        font-size: 21px;
+    }
+
+    .faq-answer p {
+        padding-left: 40px;
+        padding-right: 14px;
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    /* =========================================
+       MOBILE CONTACT / FINAL CTA
+    ========================================= */
+
+    .contact-slide {
+        min-height: auto;
+        height: auto;
+        max-height: none;
+        padding: 92px 18px 28px;
+        background: #ed4036;
+    }
+
+    .contact-background {
+        background-position: 62% center;
+        transform: scale(1.06);
+    }
+
+    .contact-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(20,20,20,.72) 0%,
+                rgba(20,20,20,.48) 34%,
+                rgba(237,64,54,.78) 72%,
+                rgba(237,64,54,.92) 100%
+            );
+    }
+
+    .contact-inner {
+        min-height: 0;
+        height: auto;
+        padding: 12px 0 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .contact-copy {
+        max-width: 100%;
+    }
+
+    .contact-copy .number {
+        margin-bottom: 13px;
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .contact-copy h2 {
+        font-size: clamp(46px, 13vw, 64px);
+        line-height: .88;
+        letter-spacing: -3px;
+    }
+
+    .contact-heading-line {
+        width: 62px;
+        height: 3px;
+        margin: 20px 0 17px;
+    }
+
+    .contact-lead {
+        max-width: 420px;
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    .contact-plans-button {
+        margin-top: 19px;
+        padding: 12px 17px;
+        font-size: 11px;
+    }
+
+    .contact-details {
+        margin-top: 25px;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 12px;
+    }
+
+    .contact-detail-block {
+        gap: 6px;
+    }
+
+    .contact-detail-block:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .contact-detail-label {
+        font-size: 8px;
+        letter-spacing: 1.7px;
+    }
+
+    .contact-details a {
+        font-size: 11px;
+    }
+
+    .contact-form-panel {
+        margin-top: 30px;
+        padding: 21px;
+        border-radius: 8px;
+        box-shadow: 0 20px 45px rgba(55,15,10,.22);
+    }
+
+    .form-panel-heading h3 {
+        font-size: 28px;
+    }
+
+    .form-panel-heading p {
+        font-size: 12px;
+    }
+
+    .contact-form {
+        margin-top: 17px;
+    }
+
+    .contact-fields {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .contact-fields input {
+        height: 43px;
+    }
+
+    .contact-form textarea {
+        height: 115px;
+        min-height: 115px;
+    }
+
+    .contact-submit {
+        width: 100%;
+        height: 44px;
+    }
+
+    .contact-footer {
+        margin-top: 25px;
+        padding-top: 14px;
+        flex-direction: column;
+        gap: 7px;
+        text-align: center;
+        font-size: 8px;
+        line-height: 1.5;
+    }
+}
+
+/* Prevent the mobile menu from affecting the desktop layout. */
+@media (min-width: 901px) {
+    .mobile-menu-toggle,
+    .mobile-nav-panel {
+        display: none !important;
+    }
+}
+
+
+/* =========================================================
+   FINAL POLISH OVERRIDES
+   - Larger, more visible hero artwork
+   - Floating / frameless plan imagery
+   - Stronger plan-to-image relationship
+   - Mobile About: logo above copy
+   - Mobile Why Ignite: remove excess vertical gap
+========================================================= */
+
+/* ---------------------------------------------------------
+   HERO: bring the artwork forward
+--------------------------------------------------------- */
+.hero {
+    background-image: none;
+}
+
+.hero::after {
+    width: min(980px, 76vw);
+    height: 94%;
+    right: -7%;
+    bottom: -9%;
+    opacity: .54;
+    background-size: contain;
+    background-position: right bottom;
+    filter: saturate(1.10) contrast(1.04);
+    transition: opacity .6s ease, transform 1s ease;
+}
+
+.hero::before {
+    background:
+        radial-gradient(circle at 79% 52%, rgba(237,64,54,.14), transparent 31%),
+        radial-gradient(circle at 91% 64%, rgba(246,146,30,.13), transparent 27%);
+}
+
+.slide.active .hero::after {
+    transform: scale(1.025);
+}
+
+/* Keep text readable while allowing the artwork to be prominent. */
+.hero-content {
+    max-width: 760px;
+}
+
+/* ---------------------------------------------------------
+   PLANS: replace the boxed photo with a floating composition
+--------------------------------------------------------- */
+.work-slide {
+    grid-template-columns: minmax(460px, .96fr) minmax(500px, 1.04fr);
+    gap: 4.5%;
+    padding-left: 7.5%;
+    padding-right: 7%;
+}
+
+.work-image {
+    height: min(58vh, 500px);
+    min-height: 390px;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    isolation: isolate;
+}
+
+.work-image img {
+    width: 112%;
+    height: 112%;
+    left: -6%;
+    top: -6%;
+    object-fit: contain;
+    object-position: center;
+    padding: 0;
+    transform: scale(1.05);
+    filter: saturate(1.08) contrast(1.03) drop-shadow(0 24px 35px rgba(17,17,17,.13));
+    transition: opacity .35s ease, transform .7s cubic-bezier(.2,.7,.2,1), filter .5s ease;
+}
+
+.work-image:hover img {
+    transform: scale(1.09);
+}
+
+/* Remove the old card-like frame. */
+.work-image::after {
+    display: none;
+}
+
+/* The image itself should remain clean; only the lower caption gets
+   a very subtle readability fade. */
+.image-overlay {
+    inset: auto 0 0;
+    height: 42%;
+    background: linear-gradient(
+        to top,
+        rgba(17,17,17,.42),
+        rgba(17,17,17,.12) 42%,
+        transparent
+    );
+    z-index: 2;
+}
+
+.image-caption {
+    left: 20px;
+    right: 20px;
+    bottom: 18px;
+    text-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+
+.image-caption h3 {
+    font-size: clamp(27px, 2.6vw, 40px);
+}
+
+.image-caption p {
+    max-width: 520px;
+}
+
+.image-accent {
+    width: 58px;
+}
+
+/* Give the plan selector a cleaner editorial appearance. */
+.ignite-card {
+    min-height: 116px;
+    border-radius: 0;
+    border-top: 1px solid rgba(17,17,17,.10);
+    border-right: 0;
+    border-bottom: 1px solid rgba(17,17,17,.10);
+    border-left: 3px solid rgba(237,64,54,.28);
+    box-shadow: none;
+    background: rgba(255,255,255,.72);
+    backdrop-filter: blur(4px);
+}
+
+.ignite-card:hover,
+.ignite-card.active {
+    transform: translateX(-7px);
+    box-shadow: 0 14px 28px rgba(17,17,17,.07);
+}
+
+/* ---------------------------------------------------------
+   MOBILE HERO: retain the same visual language
+--------------------------------------------------------- */
+@media (max-width: 900px) {
+
+    .hero {
+        min-height: 100svh;
+        padding: 88px 22px 42px;
+    }
+
+    .hero::after {
+        width: 132%;
+        height: 61%;
+        right: -38%;
+        bottom: -5%;
+        opacity: .48;
+        background-position: right bottom;
+        transform: none;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding-top: 4vh;
+    }
+
+    /* -----------------------------------------------------
+       MOBILE WHY IGNITE: eliminate the oversized empty gap
+    ----------------------------------------------------- */
+    .white-slide {
+        min-height: 100svh;
+        padding: 0 20px 44px;
+    }
+
+    .white-slide::before {
+        height: 285px;
+        background:
+            linear-gradient(to bottom, rgba(237,64,54,.02), rgba(237,64,54,.58)),
+            url("assets/images/herowhy5.jpg") center 28% / cover no-repeat;
+        clip-path: polygon(0 0, 100% 0, 100% 88%, 80% 100%, 0 93%);
+        opacity: 1;
+    }
+
+    .white-slide::after {
+        top: 220px;
+        height: 145px;
+        background: linear-gradient(
+            to bottom,
+            rgba(237,64,54,0),
+            rgba(237,64,54,.82) 68%,
+            #ed4036
+        );
+    }
+
+    .white-slide .content {
+        padding: 295px 0 0;
+    }
+
+    .white-slide h2 {
+        margin-bottom: 0;
+    }
+
+    .white-slide .heading-line {
+        margin: 15px 0 20px;
+    }
+
+    .white-slide .benefits {
+        gap: 17px;
+    }
+
+    .white-slide .connection-message {
+        margin-top: 18px;
+    }
+
+    /* -----------------------------------------------------
+       MOBILE PLANS: frameless / floating image
+    ----------------------------------------------------- */
+    .work-slide {
+        min-height: 100svh;
+        padding: 88px 18px 52px;
+        display: block;
+    }
+
+    .work-image {
+        width: 100%;
+        height: 310px;
+        min-height: 310px;
+        margin: 0 auto;
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .work-image img {
+        width: 125%;
+        height: 125%;
+        left: -12.5%;
+        top: -11%;
+        transform: scale(1.04);
+        filter: saturate(1.08) contrast(1.03) drop-shadow(0 18px 28px rgba(17,17,17,.13));
+    }
+
+    .work-image:hover img {
+        transform: scale(1.07);
+    }
+
+    .work-image::after {
+        display: none;
+    }
+
+    .image-overlay {
+        height: 35%;
+        background: linear-gradient(
+            to top,
+            rgba(17,17,17,.40),
+            rgba(17,17,17,.08) 55%,
+            transparent
+        );
+    }
+
+    .image-caption {
+        left: 12px;
+        right: 12px;
+        bottom: 13px;
+    }
+
+    .image-caption h3 {
+        font-size: clamp(22px, 7vw, 30px);
+    }
+
+    .ignite-card {
+        min-height: 106px;
+        border-radius: 0;
+        border-left-width: 3px;
+        box-shadow: none;
+    }
+
+    .ignite-card:hover,
+    .ignite-card.active {
+        transform: translateX(0);
+        box-shadow: 0 10px 24px rgba(17,17,17,.06);
+    }
+
+    /* -----------------------------------------------------
+       MOBILE ABOUT: logo comes before the explanatory copy
+    ----------------------------------------------------- */
+    .about-slide {
+        min-height: 100svh;
+        height: auto;
+        padding: 88px 20px 45px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        background: #ed4036;
+    }
+
+    .about-background {
+        height: 300px;
+        background-position: center top;
+    }
+
+    .about-slide::after {
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(237,64,54,.08) 0,
+                rgba(237,64,54,.82) 285px,
+                #ed4036 410px
+            );
+    }
+
+    /* Flatten the content wrapper so its children can be ordered
+       alongside the logo panel on mobile. */
+    .about-content {
+        display: contents;
+    }
+
+    .about-content .number {
+        order: 1;
+        width: 100%;
+        margin: 0 0 10px;
+        padding: 0;
+    }
+
+    .about-content h2 {
+        order: 2;
+        width: 100%;
+        margin: 0;
+        font-size: clamp(44px, 13vw, 58px);
+        line-height: .9;
+    }
+
+    .about-line {
+        order: 3;
+        margin: 12px 0 13px;
+    }
+
+    .about-logo-panel {
+        order: 4;
+        width: 100%;
+        margin: 0 0 18px;
+        padding: 0;
+        min-height: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .about-logo-card {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .about-logo-card img {
+        width: min(245px, 76%);
+        height: auto;
+        filter: drop-shadow(0 10px 20px rgba(0,0,0,.10));
+    }
+
+    .about-copy {
+        order: 5;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about-copy p {
+        font-size: 13px;
+        line-height: 1.55;
+        margin-bottom: 12px;
+    }
+
+    .about-button {
+        order: 6;
+        align-self: flex-start;
+        margin-top: 4px;
+    }
+
+    .about-decorative-label {
+        order: 7;
+        position: static;
+        margin-top: 24px;
+        width: 100%;
+    }
+}
+
+/* Desktop-only guard: keep the original two-column About composition. */
+@media (min-width: 901px) {
+    .about-content {
+        display: flex;
+    }
+
+    .about-logo-panel {
+        position: relative;
+    }
+}
+
+
+/* =========================================================
+   FINAL POLISH — REQUESTED UI FIXES
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1) PLAN IMAGE — frameless / floating artwork
+   The source PNGs already have transparent backgrounds, so
+   the old rectangular card was visually unnecessary.
+--------------------------------------------------------- */
+.work-image {
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    isolation: isolate;
+}
+
+/* Let the transparent PNGs sit naturally on the white page. */
+.work-image img {
+    width: 108% !important;
+    height: 108% !important;
+    left: -4% !important;
+    top: -4% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: scale(1) !important;
+    filter: saturate(1.04) contrast(1.02) drop-shadow(0 20px 28px rgba(17,17,17,.10)) !important;
+    transition:
+        opacity .42s ease,
+        transform .62s cubic-bezier(.22,1,.36,1),
+        filter .42s ease !important;
+}
+
+.work-image:hover img {
+    transform: scale(1.025) !important;
+}
+
+/* Replace the old rectangular border treatment with a subtle
+   bottom readability fade only. */
+.work-image::after {
+    display: none !important;
+}
+
+.image-overlay {
+    inset: auto 0 0 0 !important;
+    height: 34% !important;
+    background: linear-gradient(
+        to top,
+        rgba(17,17,17,.34) 0%,
+        rgba(17,17,17,.12) 42%,
+        transparent 100%
+    ) !important;
+    z-index: 2;
+}
+
+/* A slim diagonal light sweep makes plan changes feel intentional
+   without revealing a rectangular orange panel. */
+.image-transition {
+    inset: -12% -20% !important;
+    width: 140% !important;
+    height: 124% !important;
+    background: linear-gradient(
+        108deg,
+        transparent 34%,
+        rgba(237,64,54,.00) 40%,
+        rgba(237,64,54,.20) 48%,
+        rgba(246,146,30,.34) 51%,
+        rgba(255,255,255,.18) 54%,
+        transparent 62%
+    ) !important;
+    transform: translateX(-18%) !important;
+    transform-origin: center !important;
+    opacity: 0 !important;
+    transition: opacity .22s ease, transform .62s cubic-bezier(.65,0,.35,1) !important;
+    mix-blend-mode: screen;
+    z-index: 6;
+}
+
+.work-image.is-changing img {
+    opacity: .16 !important;
+    transform: scale(1.055) !important;
+    filter: saturate(1.08) contrast(1.02) blur(1.5px)
+            drop-shadow(0 20px 28px rgba(17,17,17,.08)) !important;
+}
+
+.work-image.is-changing .image-transition {
+    opacity: 1 !important;
+    transform: translateX(18%) !important;
+}
+
+/* Keep the caption readable without rebuilding a card around it. */
+.image-caption {
+    left: 22px !important;
+    right: 22px !important;
+    bottom: 22px !important;
+}
+
+/* ---------------------------------------------------------
+   2) CONTACT — prevent the desktop form/details from
+   running below the viewport.
+--------------------------------------------------------- */
+.contact-inner {
+    padding-top: 32px !important;
+    padding-bottom: 12px !important;
+    row-gap: 10px !important;
+}
+
+.contact-copy h2 {
+    font-size: clamp(48px, 5.4vw, 76px) !important;
+    line-height: .88 !important;
+}
+
+.contact-heading-line {
+    margin-top: 20px !important;
+    margin-bottom: 17px !important;
+}
+
+.contact-lead {
+    font-size: 15px !important;
+    line-height: 1.52 !important;
+}
+
+.contact-plans-button {
+    margin-top: 18px !important;
+}
+
+.contact-details {
+    margin-top: 20px !important;
+    gap: 16px !important;
+}
+
+.contact-form-panel {
+    padding: 26px !important;
+    max-width: 560px !important;
+}
+
+.form-panel-heading h3 {
+    font-size: 29px !important;
+}
+
+.form-panel-heading p {
+    margin-top: 7px !important;
+}
+
+.contact-form {
+    margin-top: 17px !important;
+}
+
+.contact-fields {
+    margin-bottom: 8px !important;
+}
+
+.contact-fields input {
+    height: 42px !important;
+}
+
+.contact-form textarea {
+    height: 112px !important;
+    min-height: 112px !important;
+}
+
+.contact-submit {
+    margin-top: 10px !important;
+    height: 40px !important;
+}
+
+/* At shorter desktop heights, compact the contact slide a little
+   more instead of allowing the details/footer to clip. */
+@media (min-width: 901px) and (max-height: 760px) {
+    .contact-inner {
+        padding-top: 20px !important;
+        padding-bottom: 8px !important;
+    }
+
+    .contact-copy h2 {
+        font-size: clamp(44px, 5vw, 68px) !important;
+    }
+
+    .contact-heading-line {
+        margin-top: 16px !important;
+        margin-bottom: 13px !important;
+    }
+
+    .contact-plans-button {
+        margin-top: 14px !important;
+    }
+
+    .contact-details {
+        margin-top: 15px !important;
+        gap: 12px !important;
+    }
+
+    .contact-form-panel {
+        padding: 22px !important;
+    }
+
+    .contact-form textarea {
+        height: 96px !important;
+        min-height: 96px !important;
+    }
+}
+
+/* ---------------------------------------------------------
+   3) MOBILE WHY IGNITE — remove the dead red gap.
+   The image is now an actual visible top composition and
+   the text begins immediately after its fade.
+--------------------------------------------------------- */
+@media (max-width: 900px) {
+    .white-slide {
+        position: relative;
+        isolation: isolate;
+        min-height: 100svh;
+        padding: 0 20px 44px !important;
+        background: linear-gradient(
+            155deg,
+            #ed4036 0%,
+            #f35b32 58%,
+            #f6921e 100%
+        ) !important;
+    }
+
+    .white-slide::before {
+        z-index: 0 !important;
+        height: 235px !important;
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(237,64,54,.02),
+                rgba(237,64,54,.18) 60%,
+                rgba(237,64,54,.72) 100%
+            ),
+            url("assets/images/herowhy5.jpg") center 23% / cover no-repeat !important;
+        clip-path: polygon(
+            0 0,
+            100% 0,
+            100% 86%,
+            80% 100%,
+            0 93%
+        ) !important;
+        opacity: 1 !important;
+    }
+
+    .white-slide::after {
+        z-index: 1 !important;
+        top: 185px !important;
+        height: 95px !important;
+        background: linear-gradient(
+            to bottom,
+            rgba(237,64,54,0),
+            rgba(237,64,54,.78) 65%,
+            #ed4036 100%
+        ) !important;
+    }
+
+    .white-slide .content {
+        position: relative;
+        z-index: 3;
+        padding: 215px 0 0 !important;
+    }
+
+    .white-slide .vertical-line {
+        z-index: 2 !important;
+    }
+}
+
+/* ---------------------------------------------------------
+   4) ABOUT — warm ivory/peach on the logo side.
+   The logo is black, so a soft cream background gives it
+   much better contrast while preserving Ignite orange.
+--------------------------------------------------------- */
+.about-slide {
+    isolation: isolate;
+    background: #fff6f1 !important;
+}
+
+.about-background {
+    z-index: 0 !important;
+    background-position: center center !important;
+    filter: saturate(.92) contrast(.98);
+}
+
+.about-slide::after {
+    z-index: 1 !important;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(237,64,54,.90) 0%,
+            rgba(237,64,54,.78) 39%,
+            rgba(237,64,54,.34) 53%,
+            rgba(255,246,241,.82) 67%,
+            rgba(255,246,241,.96) 100%
+        ) !important;
+}
+
+/* A soft cream "light pool" behind the black logo lets it blend
+   into the city image instead of looking pasted on. */
+.about-logo-panel::before {
+    content: "";
+    position: absolute;
+    inset: 13% 5% 10% 0;
+    border-radius: 50%;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255,250,246,.92) 0%,
+        rgba(255,246,241,.70) 45%,
+        rgba(255,246,241,0) 74%
+    );
+    z-index: -1;
+    pointer-events: none;
+}
+
+.about-logo-card img {
+    filter:
+        drop-shadow(0 12px 24px rgba(17,17,17,.12))
+        drop-shadow(0 0 35px rgba(255,250,246,.30)) !important;
+}
+
+/* ---------------------------------------------------------
+   ABOUT MOBILE — keep the light logo treatment instead of
+   putting the black logo on the brand-red background.
+--------------------------------------------------------- */
+@media (max-width: 900px) {
+    .about-slide {
+        position: relative;
+        isolation: isolate;
+        background: #fff6f1 !important;
+        color: #171717 !important;
+    }
+
+    .about-background {
+        z-index: 0 !important;
+        height: 265px !important;
+        opacity: .82;
+        background-position: center 18% !important;
+        filter: saturate(.86) contrast(.96);
+    }
+
+    .about-slide::after {
+        z-index: 1 !important;
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(255,246,241,.06) 0%,
+                rgba(255,246,241,.20) 42%,
+                rgba(255,246,241,.88) 82%,
+                #fff6f1 100%
+            ) !important;
+    }
+
+    .about-content,
+    .about-logo-panel {
+        position: relative;
+        z-index: 5;
+    }
+
+    .about-content .number {
+        color: var(--orange) !important;
+    }
+
+    .about-content h2 {
+        color: #171717 !important;
+    }
+
+    .about-copy p {
+        color: #444 !important;
+    }
+
+    .about-logo-title {
+        color: #171717 !important;
+    }
+
+    .about-line {
+        background: var(--orange) !important;
+    }
+
+    .about-logo-panel::before {
+        inset: -20px -8% -15px -8%;
+        background: radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,.96) 0%,
+            rgba(255,246,241,.78) 48%,
+            rgba(255,246,241,0) 75%
+        );
+    }
+
+    .about-logo-card img {
+        width: min(265px, 80%) !important;
+        filter:
+            drop-shadow(0 10px 20px rgba(17,17,17,.10))
+            drop-shadow(0 0 24px rgba(255,255,255,.55)) !important;
+    }
+
+    .about-decorative-label {
+        color: rgba(237,64,54,.72) !important;
+    }
+}
+
+
+/* =========================================================
+   FINAL MOBILE ABOUT REWORK
+   Clean editorial composition: image header -> light content
+   field -> logo -> readable copy.
+========================================================= */
+@media (max-width: 900px) {
+    .about-slide {
+        min-height: 100svh !important;
+        height: auto !important;
+        padding: 88px 20px 42px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        overflow: hidden !important;
+        background: #fff6f1 !important;
+        color: #171717 !important;
+    }
+
+    /* Keep the city image as a visual header rather than washing
+       the whole About section with it. */
+    .about-background {
+        position: absolute !important;
+        inset: 0 0 auto 0 !important;
+        height: 205px !important;
+        z-index: 0 !important;
+        background-position: center 22% !important;
+        background-size: cover !important;
+        opacity: 1 !important;
+        filter: saturate(.90) contrast(1.02) !important;
+    }
+
+    /* Fade the bottom of the photo naturally into the cream field. */
+    .about-slide::after {
+        inset: 0 !important;
+        z-index: 1 !important;
+        background: linear-gradient(
+            to bottom,
+            rgba(255,246,241,0) 0,
+            rgba(255,246,241,.04) 25%,
+            rgba(255,246,241,.70) 67%,
+            #fff6f1 205px,
+            #fff6f1 100%
+        ) !important;
+    }
+
+    /* The flattened content becomes a controlled stack. */
+    .about-content {
+        display: contents !important;
+    }
+
+    .about-content .number {
+        order: 1 !important;
+        position: relative;
+        z-index: 5;
+        margin: 7px 0 9px !important;
+        color: var(--orange) !important;
+        font-size: 9px !important;
+        letter-spacing: 2.8px !important;
+        font-weight: 800 !important;
+    }
+
+    .about-content h2 {
+        order: 2 !important;
+        position: relative;
+        z-index: 5;
+        margin: 0 !important;
+        color: #171717 !important;
+        font-size: clamp(43px, 13vw, 56px) !important;
+        line-height: .88 !important;
+        letter-spacing: -3px !important;
+    }
+
+    .about-line {
+        order: 3 !important;
+        position: relative;
+        z-index: 5;
+        width: 60px !important;
+        height: 3px !important;
+        margin: 13px 0 18px !important;
+        background: var(--orange) !important;
+    }
+
+    .about-logo-panel {
+        order: 4 !important;
+        position: relative !important;
+        z-index: 5 !important;
+        width: 100% !important;
+        min-height: 118px !important;
+        margin: 0 0 18px !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+    }
+
+    .about-logo-panel::before {
+        content: "" !important;
+        position: absolute !important;
+        inset: -12px -20px -12px -20px !important;
+        z-index: -1 !important;
+        border-radius: 18px !important;
+        background: linear-gradient(
+            90deg,
+            rgba(255,255,255,.95),
+            rgba(255,246,241,.86) 68%,
+            rgba(255,246,241,0)
+        ) !important;
+        pointer-events: none !important;
+    }
+
+    .about-logo-card {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+    }
+
+    .about-logo-card img {
+        width: min(255px, 82%) !important;
+        max-width: 255px !important;
+        height: auto !important;
+        filter:
+            drop-shadow(0 8px 14px rgba(17,17,17,.10))
+            drop-shadow(0 0 16px rgba(255,255,255,.45)) !important;
+    }
+
+    .about-copy {
+        order: 5 !important;
+        position: relative;
+        z-index: 5;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .about-copy p {
+        margin: 0 0 13px !important;
+        color: #4a4a4a !important;
+        font-size: 12.5px !important;
+        line-height: 1.52 !important;
+        font-weight: 500 !important;
+    }
+
+    .about-logo-title {
+        margin: 3px 0 8px !important;
+        color: #171717 !important;
+        font-size: 11px !important;
+        letter-spacing: 1.5px !important;
+        font-weight: 800 !important;
+    }
+
+    .about-button {
+        order: 6 !important;
+        position: relative;
+        z-index: 5;
+        align-self: flex-start !important;
+        margin-top: 4px !important;
+        padding: 11px 15px !important;
+        background: #fff !important;
+        border: 1px solid rgba(237,64,54,.25) !important;
+        color: var(--orange) !important;
+        box-shadow: 0 7px 18px rgba(17,17,17,.06) !important;
+        font-size: 10px !important;
+    }
+
+    .about-button span {
+        color: var(--orange) !important;
+    }
+
+    .about-decorative-label {
+        display: none !important;
+    }
+}
+
+/* =========================================================
+   HOME HERO — use the artwork at full strength.
+   No opacity is applied to the hero image.
+========================================================= */
+.hero::after {
+    opacity: 1 !important;
+}
+
+@media (max-width: 900px) {
+    .hero::after {
+        opacity: 1 !important;
+    }
+}

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Ignite - Changing the way we connect</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
+    <nav>
+
+        <img
+            src="assets/images/Ignite-website-logo.png"
+            alt="Ignite Telecom Logo"
+            class="logo"
+        >
+
+        <ul class="nav-links">
+
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#work">PLANS</a></li>
+            <li><a href="#about" class="active-nav">ABOUT US</a></li>
+            <li><a href="#future">FAQS</a></li>
+            <li><a href="#contact">CONTACT US</a></li>
+            <li><a href="#careers">CAREERS</a></li>
+
+        </ul>
+
+        <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="mobile-nav-panel" aria-hidden="true">
+            <a href="#home">HOME</a>
+            <a href="#work">PLANS</a>
+            <a href="#about">ABOUT US</a>
+            <a href="#future">FAQS</a>
+            <a href="#contact">CONTACT US</a>
+            <a href="#careers">CAREERS</a>
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================
+         DOT NAVIGATION
+    ========================================= -->
+
+    <div class="dots">
+
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         SLIDE 01
+    ========================================= -->
+
+    <section
+        class="slide hero active"
+        id="home"
+    >
+
+        <div class="background"></div>
+
+        <div class="overlay"></div>
+
+        <div class="glow"></div>
+
+        <div class="vertical-line"></div>
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+            </div>
+
+            <h1>
+                <span>Switch to Ignite.</span>
+            </h1>
+
+            <p>
+
+                Enjoy a game-changing internet<br>
+
+                service starting at
+                <span class="starting">Php 1,200*</span><br>
+
+                <span class="mbps">
+                    *Plan 1200 at 50 mbps
+                </span>
+
+            </p>
+
+            <a
+                href="#idea"
+                class="button"
+            >
+
+                Choose Your Plans
+
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+
+        <div class="scroll">
+
+            <div class="scroll-line"></div>
+
+            SCROLL TO EXPLORE
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SLIDE 02
+    ========================================= -->
+
+    <section
+        class="slide white-slide"
+        id="idea"
+    >
+
+        <div class="vertical-line"></div>
+
+        <div class="content">
+
+            <div class="number">
+                01 / WHY IGNITE
+            </div>
+
+            <h2>
+                Why switch to Ignite?
+            </h2>
+
+            <div class="heading-line"></div>
+
+
+            <div class="benefits">
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+
+                        <i class="bi bi-shield-fill-check"></i>
+
+                    </div>
+
+                    <div class="benefit-text">
+
+                        <h3>
+                            Reliable connection
+                        </h3>
+
+                        <p>
+                            Service reliability that exceeds
+                            industry standards.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+
+                        <i class="bi bi-router-fill"></i>
+
+                    </div>
+
+                    <div class="benefit-text">
+
+                        <h3>
+                            Consistent speeds
+                        </h3>
+
+                        <p>
+                            Consistent speeds even during
+                            periods of high demand.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+
+                        <i class="bi bi-telephone-fill"></i>
+
+                    </div>
+
+                    <div class="benefit-text">
+
+                        <h3>
+                            Support when you need it
+                        </h3>
+
+                        <p>
+                            Faster installation and repair
+                            turnaround times when you need
+                            assistance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="connection-message">
+
+                <span>
+                    BUILT FOR THE WAY YOU CONNECT
+                </span>
+
+                <p>
+                    Internet designed for work,
+                    entertainment, learning and
+                    everyday life.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+        <!-- =====================================
+     SLIDE 03
+     IGNITE PLANS / INTERACTIVE PLAN GALLERY
+========================================= -->
+
+<section
+    class="slide work-slide"
+    id="work"
+>
+
+    <div class="vertical-line"></div>
+
+    <!-- LEFT: PLAN PREVIEW -->
+    <div class="work-intro">
+
+        <div class="number">
+            02 / IGNITE PLANS
+        </div>
+
+        <div class="work-image" aria-live="polite">
+
+            <img
+                id="workPreview"
+                src="assets/images/ignite-plan-default.jpg"
+                alt="Ignite broadband plan preview"
+            >
+
+            <div class="image-overlay"></div>
+            <div class="image-accent"></div>
+
+            <div class="image-caption">
+                <span id="imageNumber">00</span>
+
+                <h3 id="imageTitle">
+                    Choose the speed that fits your life.
+                </h3>
+
+                <p id="imageSubtitle">
+                    Explore the Ignite plans built for every kind of connection.
+                </p>
+            </div>
+
+            <div
+                class="image-transition"
+                id="imageTransition"
+            ></div>
+
+        </div>
+
+        <div class="work-description">
+
+            <p id="workDescription">
+                From everyday browsing to gaming, streaming and a busy connected home,
+                Ignite gives you a plan designed around how you use the internet.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT: PLAN OPTIONS -->
+    <div class="ignite-projects">
+
+        <div class="plans-heading">
+            <span>FIND YOUR FIT</span>
+            <h2>Ignite Plans</h2>
+            <p>Choose the speed that matches the way you connect.</p>
+        </div>
+
+        <!-- PLAN 1200 -->
+        <button
+            type="button"
+            class="ignite-card active"
+            data-image="assets/images/pricing-image1-new.png"
+            data-number="01"
+            data-title="Plan 1200 — Up to 50 Mbps"
+            data-subtitle="EVERYDAY CONNECTION"
+            data-description="Best for surfing, streaming, video conferencing and multiple devices for an individual or a small family."
+        >
+            <span class="ignite-card-content">
+                <span class="ignite-card-label">PLAN 1200</span>
+                <strong class="plan-speed">50 <small>Mbps</small></strong>
+                <span class="plan-brief">Best for everyday browsing, streaming and video calls.</span>
+            </span>
+
+            <span class="ignite-card-number">01</span>
+            <span class="card-arrow">→</span>
+        </button>
+
+        <!-- PLAN 1500 -->
+        <button
+            type="button"
+            class="ignite-card"
+            data-image="assets/images/pricing-image2.png"
+            data-number="02"
+            data-title="Plan 1500 — Up to 100 Mbps"
+            data-subtitle="BUILT FOR PERFORMANCE"
+            data-description="Perfect for gaming, surfing, streaming in HD and video chatting across multiple connected devices."
+        >
+            <span class="ignite-card-content">
+                <span class="ignite-card-label">PLAN 1500</span>
+                <strong class="plan-speed">100 <small>Mbps</small></strong>
+                <span class="plan-brief">Made for gaming, HD streaming and multiple devices.</span>
+            </span>
+
+            <span class="ignite-card-number">02</span>
+            <span class="card-arrow">→</span>
+        </button>
+
+        <!-- PLAN 1800 -->
+        <button
+            type="button"
+            class="ignite-card"
+            data-image="assets/images/pricing-image3.png"
+            data-number="03"
+            data-title="Plan 1800 — Up to 150 Mbps"
+            data-subtitle="MADE FOR BUSY HOMES"
+            data-description="Ideal for entrepreneurs, teams and bigger families with heavy file-sharing, collaboration, gaming and HD streaming needs."
+        >
+            <span class="ignite-card-content">
+                <span class="ignite-card-label">PLAN 1800</span>
+                <strong class="plan-speed">150 <small>Mbps</small></strong>
+                <span class="plan-brief">For bigger families, heavy use and many connected devices.</span>
+            </span>
+
+            <span class="ignite-card-number">03</span>
+            <span class="card-arrow">→</span>
+        </button>
+
+        <div class="cards-hint">
+            <span></span>
+            HOVER OR SELECT A PLAN
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+         SLIDE 04 / ABOUT US
+    ========================================= -->
+
+    <section class="slide about-slide" id="about">
+
+        <div class="about-background"></div>
+
+        <div class="about-content">
+            <div class="number">03 / ABOUT IGNITE</div>
+            <h2>About Us</h2>
+            <div class="about-line"></div>
+
+            <div class="about-copy">
+                <p>We are Ignite Telecoms. We are a game-changing internet and digital services provider that offers a reliable and consistent internet experience through a fiber network and a dedicated customer care team.</p>
+                <p>Ignite is built on three guiding pillars that help us foster genuine connections with our customers—all of which are symbolized by the Ignite “i” logo.</p>
+                <div class="about-logo-title">OUR LOGO:</div>
+                <p>The Ignite “i” logo is a visual representation of how we bring reliability and consistency together to provide an enhanced customer experience.</p>
+                <p>The Ignite icon is formed by stacking dynamic triangles, topped with a forward-facing triangle to depict our future-oriented approach to our business.</p>
+            </div>
+
+            <a href="#future" class="button about-button">
+                Learn More About Us <span>→</span>
+            </a>
+        </div>
+
+        <div class="about-logo-panel">
+            <div class="about-logo-card">
+                <img src="assets/images/ignite-logo.png" alt="Ignite Telecom logo">
+            </div>
+        </div>
+
+        <div class="about-decorative-label">
+            <span></span>
+            CONNECTING PEOPLE. POWERING POSSIBILITIES.
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         SLIDE 05 / FAQS
+    ========================================= -->
+
+    <section
+        class="slide faq-slide"
+        id="future"
+    >
+
+        <div class="faq-vertical-line"></div>
+
+        <div class="faq-layout">
+
+            <div class="faq-intro">
+
+                <div class="number">04 / FAQ</div>
+
+                <h2>
+                    Questions?<br>
+                    <span>We've got answers.</span>
+                </h2>
+
+                <div class="faq-heading-line"></div>
+
+                <p>
+                    Choosing the right internet connection comes with questions.
+                    Here are the answers to the things Ignite customers ask most.
+                </p>
+
+                <div class="faq-help">
+                    <span>STILL NEED HELP?</span>
+                    <a href="#contact" class="button faq-button">
+                        Talk to Ignite <span>→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="faq-list" aria-label="Frequently Asked Questions">
+
+                <div class="faq-item active">
+                    <button class="faq-question" type="button" aria-expanded="true" aria-controls="faq-answer-1">
+                        <span class="faq-question-main">
+                            <span class="faq-index">01</span>
+                            <span>Where is the service area of Ignite?</span>
+                        </span>
+                        <i class="bi bi-arrow-down-short faq-arrow" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-1" role="region">
+                        <p>We are currently serving condominiums within Metro Manila, but we are steadily rolling out our service to nearby areas.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">
+                        <span class="faq-question-main">
+                            <span class="faq-index">02</span>
+                            <span>What is the minimum guaranteed speed?</span>
+                        </span>
+                        <i class="bi bi-arrow-down-short faq-arrow" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-2" role="region">
+                        <p>The minimum guaranteed speed is 30% of the subscribed speed, with service reliability that is above industry standards.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3">
+                        <span class="faq-question-main">
+                            <span class="faq-index">03</span>
+                            <span>Where can I apply for the service?</span>
+                        </span>
+                        <i class="bi bi-arrow-down-short faq-arrow" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-3" role="region">
+                        <p>You can email us at <a href="mailto:sales@ignitetelecoms.com">sales@ignitetelecoms.com</a> or contact the designated sales manager at your condo complex. Soon, you can apply for a plan through our website.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4">
+                        <span class="faq-question-main">
+                            <span class="faq-index">04</span>
+                            <span>Where can I report any technical issues?</span>
+                        </span>
+                        <i class="bi bi-arrow-down-short faq-arrow" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-4" role="region">
+                        <p>Reach out to us through our hotline number, <a href="tel:+63286872849">+632-8687-2849</a>, loc. 203, or email <a href="mailto:noc@ignitetelecoms.com">noc@ignitetelecoms.com</a>.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5">
+                        <span class="faq-question-main">
+                            <span class="faq-index">05</span>
+                            <span>Where can I pay and report any billing concerns?</span>
+                        </span>
+                        <i class="bi bi-arrow-down-short faq-arrow" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-5" role="region">
+                        <p>For payments, we have a partner bank where you can pay for your plan. For billing concerns, please email us at <a href="mailto:billing@ignitetelecoms.com">billing@ignitetelecoms.com</a>.</p>
+                    </div>
+                </div>
+
+                <div class="faq-footer-label">
+                    <span></span>
+                    SELECT A QUESTION TO EXPLORE
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         SLIDE 06 / FINAL CONTACT / CTA
+    ========================================= -->
+    <section class="slide contact-slide" id="contact">
+
+        <div class="contact-background"></div>
+        <div class="contact-overlay"></div>
+
+        <div class="contact-inner">
+
+            <div class="contact-copy">
+
+                <div class="number">05 / CONTACT IGNITE</div>
+
+                <h2>
+                    Let's get you<br>
+                    <span>connected.</span>
+                </h2>
+
+                <div class="contact-heading-line"></div>
+
+                <p class="contact-lead">
+                    Better internet starts with the right connection.
+                    Tell us what you need and our team will help you find
+                    the right Ignite plan.
+                </p>
+
+                <a href="#work" class="button contact-plans-button">
+                    View Our Plans <span>→</span>
+                </a>
+
+                <div class="contact-details">
+
+                    <div class="contact-detail-block">
+                        <span class="contact-detail-label">SALES &amp; APPLICATION</span>
+                        <a href="mailto:sales@ignitetelecoms.com">
+                            <i class="bi bi-envelope-fill"></i>
+                            sales@ignitetelecoms.com
+                        </a>
+                    </div>
+
+                    <div class="contact-detail-block">
+                        <span class="contact-detail-label">TECHNICAL SUPPORT</span>
+                        <a href="tel:+63286872849">
+                            <i class="bi bi-telephone-fill"></i>
+                            +632 8687 2849 loc. 203
+                        </a>
+                        <a href="mailto:noc@ignitetelecoms.com">
+                            <i class="bi bi-envelope-fill"></i>
+                            noc@ignitetelecoms.com
+                        </a>
+                    </div>
+
+                    <div class="contact-detail-block">
+                        <span class="contact-detail-label">BILLING</span>
+                        <a href="mailto:billing@ignitetelecoms.com">
+                            <i class="bi bi-envelope-fill"></i>
+                            billing@ignitetelecoms.com
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="contact-form-panel">
+
+                <div class="form-panel-heading">
+                    <span>HAVE A QUESTION?</span>
+                    <h3>Talk to Ignite.</h3>
+                    <p>Send us a message and we'll get back to you.</p>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+
+                    <div class="contact-fields">
+
+                        <label class="sr-only" for="contactName">Your Name</label>
+                        <input
+                            id="contactName"
+                            name="name"
+                            type="text"
+                            placeholder="Your Name"
+                            required
+                        >
+
+                        <label class="sr-only" for="contactEmail">Your Email</label>
+                        <input
+                            id="contactEmail"
+                            name="email"
+                            type="email"
+                            placeholder="Your Email"
+                            required
+                        >
+
+                    </div>
+
+                    <label class="sr-only" for="contactMessage">Your Message</label>
+                    <textarea
+                        id="contactMessage"
+                        name="message"
+                        placeholder="Tell us how we can help..."
+                        required
+                    ></textarea>
+
+                    <button type="submit" class="contact-submit">
+                        SEND MESSAGE <span>→</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+            <div class="contact-footer">
+                <span>IGNITE TELECOMS &nbsp; / &nbsp; CHANGING THE WAY WE CONNECT.</span>
+                <span>© Ignite Telecoms. All rights reserved 2023.</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
